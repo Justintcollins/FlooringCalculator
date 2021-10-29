@@ -1,0 +1,131 @@
+.c_history{
+   margin-left: 12px;
+   position: relative;
+   top: 5px;
+}
+     
+#c_seekHistory{
+    -top: 10px;
+}
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+.c_mode-length-width {
+    display:block;
+}
+
+.c_mode-area {
+    display:block;
+}
+
+.j_form-control {
+    height:37px;
+}
+
+textarea.j_form-control,
+input.j_form-control[type="text"],
+input.j_form-control[type="password"],
+input.j_form-control[type="datetime"],
+input.j_form-control[type="datetime-local"],
+input.j_form-control[type="date"],
+input.j_form-control[type="month"],
+input.j_form-control[type="time"]:focus,
+input.j_form-control[type="week"],
+input.j_form-control[type="number"],
+input.j_form-control[type="email"],
+input.j_form-control[type="url"],
+input.j_form-control[type="search"],
+input.j_form-control[type="tel"],
+input.j_form-control[type="color"],
+.uneditable-input {
+    font-size: 16px;
+}
+input[type="text"], input[type="password"], input[type="url"], input[type="tel"], input[type="search"], input[type="number"], input[type*="date"], input[type="email"] {
+    font-size: 16px;
+}
+textarea.j_form-control:focus,
+input.j_form-control[type="text"]:focus,
+input.j_form-control[type="password"]:focus,
+input.j_form-control[type="datetime"]:focus,
+input.j_form-control[type="datetime-local"]:focus,
+input.j_form-control[type="date"]:focus,
+input.j_form-control[type="month"]:focus,
+input.j_form-control[type="time"]:focus,
+input.j_form-control[type="week"]:focus,
+input.j_form-control[type="number"]:focus,
+input.j_form-control[type="email"]:focus,
+input.j_form-control[type="url"]:focus,
+input.j_form-control[type="search"]:focus,
+input.j_form-control[type="tel"]:focus,
+input.j_form-control[type="color"]:focus,
+.uneditable-input:focus {
+    font-size: 16px;
+    border:4px solid;
+    border-color: rgba(255, 184, 97, 1);
+    box-shadow: none;
+    outline: 0 none;
+}
+.j_form-range::-webkit-slider-thumb {
+    background: rgba(255, 184, 97, 1);
+    width:30px;
+}
+
+.j_form-range::-moz-range-thumb {
+    background: rgba(255, 184, 97, 1);
+    width:30px;
+}
+
+.j_form-range::-ms-thumb {
+    background: rgba(255, 184, 97, 1);
+    width:30px;
+}
+[data-sqfl-input] {
+    border-top:none !important;
+    border-left:none !important;
+    border-right:none !important;
+    font-size:16px !important;
+}
+[data-sqfl-col="2"] {
+    border-right: 1px solid #c2c2c2 !important;
+}
+[data-sqfl-col="3"] {
+    border-left: 1px solid #c2c2c2 !important;
+}
+[data-sqfl-label] {
+    border: none !important;
+    border-bottom: 1px solid #c2c2c2 !important;
+    background-color:#fff !important;
+    padding:0px !important;
+    margin:0px !important;
+}
+[data-sqfl-icon="remove"] { /*prevents remove area button from being activated at end of row*/
+    width:40px;
+}
+[data-sqfl-btn="undo"]:active { /*visual on click underline effect for undo*/
+    border-bottom:1px solid #000;
+}
+[data-sqfl-btn="redo"]:active { /*visual on click underline effect for redo*/
+    border-bottom:1px solid #000;
+}
+.form-validation-error-triggered {
+    border-bottom: 4px solid !important;
+    border-color: #ff0000 !important;
+    text-decoration: line-through !important;
+}
+@media only screen and (min-width: 800px) {
+    .smaller-price-view {
+        font-size: .9em !important;
+    }
+}
+@media only screen and (max-width: 390px) { /*fixes visibility of 2 digit (11) for inches input field*/
+  [data-sqfl-input="inch"] {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+}

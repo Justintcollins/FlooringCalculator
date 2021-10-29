@@ -1,0 +1,108 @@
+<?php
+ /**
+  * Copyright © Online Supply. All rights reserved.
+  * See COPYING.txt for license details.
+  */
+ 
+// @codingStandardsIgnoreFile
+
+/**
+ * Product additional attributes template
+ *
+ * @var $block \Magento\Catalog\Block\Product\View\Attributes
+ */
+?>
+<?php
+/**
+ * Get the this products category to see if program should be visible.
+ *
+ * @var $block \Magento\Catalog\Block\Product\View\Attributes
+ */
+
+$viewModel = $block->getData('viewModel');
+
+$showCalc = false;
+$categories = $viewModel->getProductCatagory();
+foreach ($categories as $category) {
+    if ($category == 'Gear') {
+        $showCalc = true;
+    }
+    if ($category == 'Flooring') {
+        $showCalc = true;
+    }
+    if ($category == 'Luxury Vinyl Plank and Tile') {
+        $showCalc = true;
+    }
+    if ($category == 'Waterproof Wood') {
+        $showCalc = true;
+    }
+    if ($category == 'Flooring Samples') {
+        $showCalc = false;
+    }
+}
+
+?>
+
+<?php if ($showCalc) { ?>
+
+ <script type="text/x-magento-init">
+     {
+         "*": {
+             "Ecommerce121_FlooringCalculator/js/calc-main": {},
+             "Ecommerce121_FlooringCalculator/js/calc-math": {},
+             "Ecommerce121_FlooringCalculator/js/sync-data": {}
+         }
+     }
+ </script>
+
+<div class="j_ c_mode-length-width j_d-flex j_justify-content-start noselect">
+   <h2 class="j_ j_my-2">
+       <img alt="calculator" src="<?= $escaper->escapeHtml($block->
+            getViewFileUrl('Ecommerce121_FlooringCalculator::images/calculator-icon.svg')); ?>"/>
+        <span class="j_ j_mx-2" style="font-weight:200">How many boxes will you need?</span>
+        <span id="c_seekHistory" class="j_">
+            <span class="j_ c_history" onclick="undo();" data-sqfl-btn="undo">
+                <img alt="undo" src="<?= $escaper->escapeHtml($block->
+                    getViewFileUrl('Ecommerce121_FlooringCalculator::images/undo-icon.svg')); ?>"/>
+            </span>
+            <span class="j_ c_history"  onclick="redo();" data-sqfl-btn="redo">
+                <img alt="redo" src="<?= $escaper->escapeHtml($block->
+                    getViewFileUrl('Ecommerce121_FlooringCalculator::images/redo-icon.svg')); ?>"/>
+            </span>
+        </span>
+   </h2>
+   <div class="j_ j_d-flex j_justify-content-around j_m-auto">
+   </div>
+</div>
+<div id="c_mode-length-width-container">
+    <div id="c_formBody" class="j_ c_mode-length-width noselect">
+    </div>
+</div>
+
+<div class="j_ c_mode-length-width j_d-flex j_justify-content-between j_my-1" id="c_mode-area-add">
+    <div class="j_">
+        <button class="j_ j_btn j_btn-light j_btn-xlg j_px-3 j_mx-1" id="c_add-area-btn"
+        style="font-size:14px" onClick="newState(this);" data-input-name="area">
+            + Add Area
+        </button>
+        <button class="j_ j_btn j_btn-light j_btn-xlg j_px-3 j_mx-1" id="c_add-lxw-btn"
+        style="font-size:14px" onClick="newState(this);" data-input-name="lxw">
+            + Add LxW
+        </button
+    ></div>
+
+   <div class="j_ c_mode-length-width j_btn j_btn-xlg j_px-3 j_text-center"
+   style="font-size:14px" id="c_add-last-icon" data-input-name="addLast"  onclick="newState(this)">
+      <img src="<?= $escaper->escapeHtml($block->
+          getViewFileUrl('Ecommerce121_FlooringCalculator::images/plus-icon.svg')); ?>"/>
+   </div>
+</div>
+
+<div class="j_ j_border-bottom j_mb-4 c_mode-length-width j_d-flex j_justify-content-between">
+    <div id="c_calculate_btn" class="j_ j_btn j_btn-secondary j_px-3 j_my-4 " style="font-size:14px; width:10em"
+        onclick="syncData()" data-submit-by="calcbtn">Calculate</div>
+</div>
+  <div id="c_sqftResultBody" class="j_ noselect"></div>
+
+<?php  } ?>
+

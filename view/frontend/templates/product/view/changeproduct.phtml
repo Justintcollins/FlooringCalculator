@@ -1,0 +1,74 @@
+<?php
+/**
+ * Copyright © OnlineSupply.com All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+$prod = $block->getProduct();
+$sqftProductPrice = $prod->getPrice();
+$sqftProductName = $prod->getName();
+$sqftProductId = $prod->getId();
+$sqftPackageContainerId = $prod->getPackageContainerId();
+$sqftPackageContainerQty = $prod->getPackageContainerQty();
+$sqftProductContainerId = $prod->getProductContainerId();
+
+$moreProcessing = false;
+if ($sqftPackageContainerQty < 1) {
+    $moreProcessing = true;
+}
+if ($sqftProductContainerId < 1) {
+    $moreProcessing = true;
+}
+
+$viewModel = $block->getData('viewModel');
+$hasContainer = false;
+if ($sqftPackageContainerId > 0) {
+    $hasContainer = true;
+    $containerProd = $viewModel->getLoadProduct($sqftPackageContainerId);
+    $containerProductPrice = $containerProd->getPrice();
+    $containerProductName = $containerProd->getName();
+    $containerProductSqftUnitPrice =  round($containerProductPrice / $sqftPackageContainerQty, 2);
+} else {
+     $containerProductName = $sqftProductName;
+     $containerProductPrice = $sqftProductPrice;
+    if ($moreProcessing) {
+        $containerProductSqftUnitPrice = 0;
+    } else {
+        $containerProductSqftUnitPrice = round($containerProductPrice / $sqftPackageContainerQty, 2);
+    }
+}
+
+?>
+<span id="mage_productMoreProcessing" data-mage-more-processing=
+"<?= $escaper->escapeHtml($moreProcessing); ?>"
+></span>
+<span id="mage_productContainerPrice" data-mage-product-container-price=
+"<?= $escaper->escapeHtml($containerProductPrice); ?>"
+></span>
+<span id="mage_productContainerName" data-mage-container-product-name=
+"<?= $escaper->escapeHtml($containerProductName); ?>"
+></span>
+<span id="mage_productName" data-mage-product-name=
+"<?= $escaper->escapeHtml($sqftProductName); ?>"
+></span>
+<input type="hidden" id="mage_productId" data-mage-product-id=
+"<?= $escaper->escapeHtml($sqftProductId); ?>"/>
+<input type="hidden" id="sqft-hasContainer" data-mage-has-container=
+"<?= $escaper->escapeHtml($hasContainer); ?>"/>
+<input type="hidden" id="mage_packageContainerId" data-mage-package-container-id=
+"<?= $escaper->escapeHtml($sqftPackageContainerId); ?>"
+/>
+<input type="hidden" id="mage_packageContainerQty" data-mage-package-container-qty=
+"<?= $escaper->escapeHtml($sqftPackageContainerQty); ?>"
+/>
+<input type="hidden" id="mage_sqft-unit-price" data-mage-package-container-sqft-unit-price=
+"<?= $escaper->escapeHtml($containerProductSqftUnitPrice); ?>"
+/>
+<script type="text/x-magento-init">
+
+     {
+         "*": {
+             "Ecommerce121_FlooringCalculator/js/handle-changeproduct": {}
+         }
+     }
+ </script>

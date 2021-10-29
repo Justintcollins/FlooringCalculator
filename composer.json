@@ -1,0 +1,22 @@
+{
+    "name": "ecommerce121/module-flooringcalculator",
+    "description": "Calculates the estimated square footage to provide customer with the correct qty.",
+    "type": "magento2-module",
+    "license": "MIT",
+    "version": "0.01",
+    "authors": [
+        {
+            "name": "Justin",
+            "email": "justintcollins88@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Ecommerce121\\FlooringCalculator\\": ""
+        }
+    }
+}
