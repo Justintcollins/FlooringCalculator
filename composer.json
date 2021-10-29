@@ -10,7 +10,9 @@
             "email": "justintcollins88@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "php": ">=7.0.0"
+    },
     "autoload": {
         "files": [
             "registration.php"
