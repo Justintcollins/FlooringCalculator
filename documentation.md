@@ -18,7 +18,7 @@ The `m` in `mState` means measurement.
  -------------------------
  
  `resultData`: is the resulting calculated data of the current mState *(current state)*, so 
-(press undo and the current state changes, and the sqftFL.resultData will change with it, by **position**).*
+(press undo and the current state changes, and the sqftFL.resultData will change with it, by **position**).
  
  -------------------------
  
