@@ -42,4 +42,15 @@ class CalculatorLogic extends Template implements ArgumentInterface
         }
         return $arr;
     }
+    
+    /**
+     * Gets current products 
+     *
+     * @return Product Object
+     */
+    public function getCurrentProduct()
+    {
+        $product = $this->registry->registry('current_product');
+        return $product;
+    }
 }

@@ -4,13 +4,6 @@
   * See COPYING.txt for license details.
   */
  
-// @codingStandardsIgnoreFile
-
-/**
- * Product additional attributes template
- *
- * @var $block \Magento\Catalog\Block\Product\View\Attributes
- */
 ?>
 <?php
 /**
@@ -18,12 +11,17 @@
  *
  * @var $block \Magento\Catalog\Block\Product\View\Attributes
  */
-
 $viewModel = $block->getData('viewModel');
 
 $showCalc = false;
 $categories = $viewModel->getProductCatagory();
 foreach ($categories as $category) {
+    if ($category == 'Pants') {
+        $showCalc = true;
+    }
+    if ($category == 'Gear') {
+        $showCalc = true;
+    }
     if ($category == 'Flooring') {
         $showCalc = true;
     }
@@ -102,4 +100,3 @@ foreach ($categories as $category) {
   <div id="c_sqftResultBody" class="j_ noselect"></div>
 
 <?php  } ?>
-

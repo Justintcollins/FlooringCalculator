@@ -3,29 +3,90 @@
  * Copyright © OnlineSupply.com All rights reserved.
  * See COPYING.txt for license details.
  */
-
+ 
+/**
+ * Get product data
+ */
+$viewModel = $block->getData('viewModel');
+$calculatorLogic = $block->getData('calculatorLogic');
 $prod = $block->getProduct();
-$sqftProductPrice = $prod->getPrice();
+$sqftProductPrice = $prod->getFinalPrice();
+$prodSku = $prod->getsku();
 $sqftProductName = $prod->getName();
 $sqftProductId = $prod->getId();
 $sqftPackageContainerId = $prod->getPackageContainerId();
 $sqftPackageContainerQty = $prod->getPackageContainerQty();
-$sqftProductContainerId = $prod->getProductContainerId();
 
-$moreProcessing = false;
+/**
+ * Assign initial values to prevent undefined errors
+ */
+$getIdBySku = [];
+$moreProcessing = 'false';
+$isConfigurableProduct = 'false';
+$optionsArray = [];
+$hasPackageContainer = 'false';
+$containerProductPrice = 0;
+$containerProductName = 'notset';
+$hasContainer = 'false';
+$containerProductSqftUnitPrice = 0;
+
+if ($sqftPackageContainerQty > 0) { //check if $sqftPackageContainerQty
+    if ($sqftPackageContainerId > 0) {
+        
+        $hasPackageContainer = 'true';
+        $containerProduct_ = $viewModel->getLoadProduct($sqftPackageContainerId);
+        $containerProductSku = $containerProduct_->getSku();
+        $prodSku = $containerProductSku;
+        
+        foreach ($containerProduct_->getOptions() as $options) {
+            $optionData = $options->getValues();
+            foreach ($optionData as $data) {
+                $customizableOptions = $data->getData();
+                // print_r($customizableOptions);
+                $OptionTypeId = $data->getOptionTypeId();
+                $OptionId  = $data->getOptionId();
+                $optionsArray[] =
+                [
+                    'title' => $customizableOptions['title'],
+                    'optionId' => $data->getOptionId(),
+                    'optionTypeId' => $data->getOptionTypeId(),
+                    'sku' => $customizableOptions['sku']
+                ];
+            }
+        }
+    //   Check if product is ConfigurableProduct
+        if ($prod->getTypeId() == \Magento\ConfigurableProduct\Model\Product\Type\Configurable::TYPE_CODE) {
+            $isConfigurableProduct = 'true';
+            $configProduct = $viewModel->getLoadProduct($sqftProductId);
+            $_children = $configProduct->getTypeInstance()->getUsedProducts($configProduct);
+            foreach ($_children as $child) {
+                $getIdBySku[$child->getSku()] = $child->getId();
+            }
+        } else {
+            $isConfigurableProduct = 'false';
+        }
+    } // If packageContainerId is valid ?>
+
+<script type="text/x-magento-init">
+
+     {
+         "*": {
+             "Ecommerce121_FlooringCalculator/js/handle-changeproduct": {}
+         }
+     }
+ </script> <?php
+} else { // done check if $sqftPackageContainerQty
+    $sqftPackageContainerQty = 0;
+}
+
 if ($sqftPackageContainerQty < 1) {
-    $moreProcessing = true;
-}
-if ($sqftProductContainerId < 1) {
-    $moreProcessing = true;
+    $moreProcessing = 'true';
 }
 
-$viewModel = $block->getData('viewModel');
-$hasContainer = false;
 if ($sqftPackageContainerId > 0) {
-    $hasContainer = true;
+    $hasContainer = 'true';
     $containerProd = $viewModel->getLoadProduct($sqftPackageContainerId);
-    $containerProductPrice = $containerProd->getPrice();
+    $containerProductPrice = $containerProd->getFinalPrice();
     $containerProductName = $containerProd->getName();
     $containerProductSqftUnitPrice =  round($containerProductPrice / $sqftPackageContainerQty, 2);
 } else {
@@ -38,7 +99,29 @@ if ($sqftPackageContainerId > 0) {
     }
 }
 
+/**
+ * getIdBySku applies for Configurable products-(Must be json encoded even if empty)
+ */
+$getIdBySku = json_encode($getIdBySku);
+$optionsArray = json_encode($optionsArray);
+
+
 ?>
+<span id="mage_hasPackageContainer" data-mage-hasPackageContainer=
+"<?= $escaper->escapeHtml($hasPackageContainer); ?>"
+></span>
+<span id="mage_optionsArray" data-mage-optionsArray=
+"<?= $escaper->escapeHtml($optionsArray); ?>"
+></span>
+<span id="mage_isConfigurableProduct" data-mage-isConfigurableProduct=
+"<?= $escaper->escapeHtml($isConfigurableProduct); ?>"
+></span>
+<span id="mage_getIdBySku" data-mage-getIdBySku=
+"<?= $escaper->escapeHtml($getIdBySku); ?>"
+></span>
+<span id="mage_prodSku" data-mage-prodSku=
+"<?= $escaper->escapeHtml($prodSku); ?>"
+></span>
 <span id="mage_productMoreProcessing" data-mage-more-processing=
 "<?= $escaper->escapeHtml($moreProcessing); ?>"
 ></span>
@@ -64,11 +147,3 @@ if ($sqftPackageContainerId > 0) {
 <input type="hidden" id="mage_sqft-unit-price" data-mage-package-container-sqft-unit-price=
 "<?= $escaper->escapeHtml($containerProductSqftUnitPrice); ?>"
 />
-<script type="text/x-magento-init">
-
-     {
-         "*": {
-             "Ecommerce121_FlooringCalculator/js/handle-changeproduct": {}
-         }
-     }
- </script>

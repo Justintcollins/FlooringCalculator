@@ -23,264 +23,233 @@
         </actionGroup>
         <waitForPageLoad stepKey="waitForPageLoad"/>
         
-      
-
         <makeScreenshot stepKey="screenshot1"/>
 <!--Row 1 Length x Width -->
-<fillField selector="{{flooringCalculatorSelector.widthInchRow1}}" userInput="{{flooringCalculatorValues.widthInchValueRow1}}" stepKey="fillWidthInchRow1"/>
-<fillField selector="{{flooringCalculatorSelector.lengthInchRow1}}" userInput="{{flooringCalculatorValues.lengthInchValueRow1}}" stepKey="fillLengthInchRow1"/>
-<fillField selector="{{flooringCalculatorSelector.lengthFeetRow1}}" userInput="{{flooringCalculatorValues.lengthFeetValueRow1}}" stepKey="fillLengthFeetRow1"/>
-<fillField selector="{{flooringCalculatorSelector.widthFeetRow1}}" userInput="{{flooringCalculatorValues.widthFeetValueRow1}}" stepKey="fillWidthFeetRow1"/>
-<!--calculate-->
-<click selector="{{flooringCalculatorSelector.calculateBtn}}" stepKey="clickCalculateBtnAssertion1"/>
-<!--grab and assert cases result-->
-<grabTextFrom selector="#j_est-cases" stepKey="grabResultCasesAssertion1"/>
-<assertEquals stepKey="assertResultAssertion1">
-   <expectedResult type="string">7 Cases</expectedResult>
-   <actualResult type="string">{$grabResultCasesAssertion1}</actualResult>
-</assertEquals>
-<!--grab and assert calculated area result-->
-<grabTextFrom selector="#j_est-area" stepKey="grabResultAreaAssertion2"/>
-<assertEquals stepKey="assertResultAreaAssertion2">
-<expectedResult type="string">Your Calculated Area is 120 sq.ft</expectedResult>
-<actualResult type="string">{$grabResultAreaAssertion2}</actualResult>
-</assertEquals>
-<!--grab and assert sqft box covers sqft result-->
-<grabTextFrom selector="#j_est-casesSqft" stepKey="grabResultBoxCoversAssertion3"/>
-<assertEquals stepKey="assertResultBoxCoversAssertion3">
-<expectedResult type="string">Covers 132 sq. ft.</expectedResult>
-<actualResult type="string">{$grabResultBoxCoversAssertion3}</actualResult>
-</assertEquals>
-<!--grab and assert estimated price result-->
-<grabTextFrom selector="#j_est-price" stepKey="grabResultEstimatedPriceAssertion4"/>
-<assertEquals stepKey="assertResultEstimatedPriceAssertion4">
-<expectedResult type="string">$395.78</expectedResult>
-<actualResult type="string">{$grabResultEstimatedPriceAssertion4}</actualResult>
-</assertEquals>
-<!--Click Toggle 10 percent to add 10 percent -->
-<click selector="{{flooringCalculatorSelector.toggle10Percent1}}" stepKey="clickToggle10PercentOn1"/>
-<!--grab and assert cases result (!SHOULD NOT CHANGE RESULTS FROM LAST)-->
-<grabTextFrom selector="#j_est-cases" stepKey="grabResultCasesAssertion1AfterToggle10percentOn"/>
-<assertEquals stepKey="assertResultAssertion1AfterToggle10percentOn">
-   <expectedResult type="string">7 Cases</expectedResult>
-   <actualResult type="string">{$grabResultCasesAssertion1AfterToggle10percentOn}</actualResult>
-</assertEquals>
-<!--grab and assert calculated area result -->
-<grabTextFrom selector="#j_est-area" stepKey="grabResultAreaAssertion2AfterToggle10percentOn"/>
-<assertEquals stepKey="assertResultAreaAssertion2AfterToggle10percentOn">
-<expectedResult type="string">Your Calculated Area is 132 sq.ft</expectedResult>
-<actualResult type="string">{$grabResultAreaAssertion2AfterToggle10percentOn}</actualResult>
-</assertEquals>
-<!--grab and assert sqft box covers sqft result (!SHOULD NOT CHANGE RESULTS FROM LAST)-->
-<grabTextFrom selector="#j_est-casesSqft" stepKey="grabResultBoxCoversAssertion3AfterToggle10percentOn"/>
-<assertEquals stepKey="assertResultBoxCoversAssertion3AfterToggle10percentOn">
-<expectedResult type="string">Covers 132 sq. ft.</expectedResult>
-<actualResult type="string">{$grabResultBoxCoversAssertion3AfterToggle10percentOn}</actualResult>
-</assertEquals>
-<!--grab and assert estimated price result (!SHOULD NOT CHANGE RESULTS FROM LAST)-->
-<grabTextFrom selector="#j_est-price" stepKey="grabResultEstimatedPriceAssertion4AfterToggle10percentOn"/>
-<assertEquals stepKey="assertResultEstimatedPriceAssertion4AfterToggle10percentOn">
-<expectedResult type="string">$395.78</expectedResult>
-<actualResult type="string">{$grabResultEstimatedPriceAssertion4AfterToggle10percentOn}</actualResult>
-</assertEquals>
-<makeScreenshot stepKey="screenshot2"/>
-
-
-
-<!--Add Row 2 LxW-->
-<click selector="{{flooringCalculatorSelector.addLxwBtn}}" stepKey="clickAddALxwBtnRow2"/>
-<fillField  selector="{{flooringCalculatorSelector.widthInchRow2}}"  userInput="{{flooringCalculatorValues.widthInchValueRow2}}"  stepKey="fillWidthInchRow2"/>
-<fillField selector="{{flooringCalculatorSelector.lengthInchRow2}}" userInput="{{flooringCalculatorValues.lengthInchValueRow2}}" stepKey="fillLengthInchRow2"/>
-<fillField selector="{{flooringCalculatorSelector.lengthFeetRow2}}" userInput="{{flooringCalculatorValues.lengthFeetValueRow2}}" stepKey="fillLengthFeetRow2"/>
-<fillField  selector="{{flooringCalculatorSelector.widthFeetRow2}}"  userInput="{{flooringCalculatorValues.widthFeetValueRow2}}"  stepKey="fillWidthFeetRow2"/>
-<!--grab and assert estimated cases - Toggle 10% On result-->
-<click selector="{{flooringCalculatorSelector.calculateBtn}}" stepKey="clickCalculateBtnAssertionRow2"/>
-<!--grab and assert estimated cases - Toggle 10% On result-->
-<grabTextFrom selector="#j_est-cases" stepKey="grabResultEstimatedCasesAssertionRow2"/>
-<assertEquals stepKey="assertResultEstimatedCasesAssertionRow2">
-<expectedResult type="string">26 Cases</expectedResult>
-<actualResult type="string">{$grabResultEstimatedCasesAssertionRow2}</actualResult>
-</assertEquals>
-<!--grab and assert estimated area - Toggle 10% On result-->
-<grabTextFrom selector="#j_est-area" stepKey="grabResultEstimatedAreaAssertionRow2"/>
-<assertEquals stepKey="assertResultEstimatedAreaAssertionRow2">
-<expectedResult type="string">Your Calculated Area is 476 sq.ft</expectedResult>
-<actualResult type="string">{$grabResultEstimatedAreaAssertionRow2}</actualResult>
-</assertEquals>
-<!--grab and assert estimated sqft comes in qty of cases - Toggle 10% On result-->
-<grabTextFrom selector="#j_est-casesSqft" stepKey="grabResultCasesSqftAssertionRow2"/>
-<assertEquals stepKey="assertResultCasesSqftAssertionRow2">
-<expectedResult type="string">Covers 491 sq. ft.</expectedResult>
-<actualResult type="string">{$grabResultCasesSqftAssertionRow2}</actualResult>
-</assertEquals>
-<!--grab and assert estimated Price - Toggle 10% On result-->
-<grabTextFrom selector="#j_est-price" stepKey="grabResultPriceAssertionRow2"/>
-<assertEquals stepKey="assertResultPriceAssertionRow2">
-<expectedResult type="string">$1470.04</expectedResult>
-<actualResult type="string">{$grabResultPriceAssertionRow2}</actualResult>
-</assertEquals>
-<!--Click Toggle 10 percent Off-->
-<click selector="{{flooringCalculatorSelector.toggle10Percent1}}" stepKey="clickToggle10PercentOff1"/>
-<!--grab and assert estimated Price - Toggle 10% Off result-->
-<grabTextFrom selector="#j_est-price" stepKey="grabResultPriceAssertionRow2Toggle10off"/>
-<assertEquals stepKey="assertResultPriceAssertionRow2Toggle10off">
-<expectedResult type="string">$1300.42</expectedResult>
-<actualResult type="string">{$grabResultPriceAssertionRow2Toggle10off}</actualResult>
-</assertEquals>
-<!--grab and assert estimated sqft comes in qty of cases - Toggle 10% Off result-->
-<grabTextFrom selector="#j_est-casesSqft" stepKey="grabResultCasesSqftAssertionRow2Toggle10off"/>
-<assertEquals stepKey="assertResultCasesSqftAssertionRow2Toggle10off">
-<expectedResult type="string">Covers 434 sq. ft.</expectedResult>
-<actualResult type="string">{$grabResultCasesSqftAssertionRow2Toggle10off}</actualResult>
-</assertEquals>
-<!--grab and assert estimated Area - Toggle 10% Off result-->
-<grabTextFrom selector="#j_est-area" stepKey="grabResultEstimatedAreaAssertionRow2Toggle10off"/>
-<assertEquals stepKey="assertResultEstimatedAreaAssertionRow2Toggle10off">
-<expectedResult type="string">Your Calculated Area is 433 sq.ft</expectedResult>
-<actualResult type="string">{$grabResultEstimatedAreaAssertionRow2Toggle10off}</actualResult>
-</assertEquals>
-<!--grab and assert estimated cases - Toggle 10% Off result-->
-<grabTextFrom selector="#j_est-cases" stepKey="grabResultEstimatedCasesAssertionRow2Toggle10off"/>
-<assertEquals stepKey="assertResultEstimatedCasesAssertionRow2Toggle10off">
-<expectedResult type="string">23 Cases</expectedResult>
-<actualResult type="string">{$grabResultEstimatedCasesAssertionRow2Toggle10off}</actualResult>
-</assertEquals>
-
-<!--Reload Page and to test localStorage-->
-<actionGroup ref="StorefrontOpenProductPageActionGroup" stepKey="openProductPage2">
-    <argument name="productUrl" value="{{_ENV.BAG_SITE}}"/>
-</actionGroup>
-<waitForPageLoad stepKey="waitForPageLoad2"/>
-<click selector="{{flooringCalculatorSelector.calculateBtn}}" stepKey="clickCalculateBtnAfterReload1"/>
-
-<!--grab and assert estimated Price - Toggle 10% Off result-->
-<grabTextFrom selector="#j_est-price" stepKey="grabResultPriceAssertionRow2Reload"/>
-<assertEquals stepKey="assertResultPriceAssertionRow2Toggle10offReload">
-<expectedResult type="string">$1300.42</expectedResult>
-<actualResult type="string">{$grabResultPriceAssertionRow2Reload}</actualResult>
-</assertEquals>
-<!--grab and assert estimated sqft comes in qty of cases - Toggle 10% Off result-->
-<grabTextFrom selector="#j_est-casesSqft" stepKey="grabResultCasesSqftAssertionRow2Reload"/>
-<assertEquals stepKey="assertResultCasesSqftAssertionRow2Toggle10offReload">
-<expectedResult type="string">Covers 434 sq. ft.</expectedResult>
-<actualResult type="string">{$grabResultCasesSqftAssertionRow2Reload}</actualResult>
-</assertEquals>
-<!--grab and assert estimated Area - Toggle 10% Off result-->
-<grabTextFrom selector="#j_est-area" stepKey="grabResultEstimatedAreaAssertionRow2Reload"/>
-<assertEquals stepKey="assertResultEstimatedAreaAssertionRow2Toggle10offReload">
-<expectedResult type="string">Your Calculated Area is 433 sq.ft</expectedResult>
-<actualResult type="string">{$grabResultEstimatedAreaAssertionRow2Reload}</actualResult>
-</assertEquals>
-<!--grab and assert estimated cases - Toggle 10% Off result-->
-<grabTextFrom selector="#j_est-cases" stepKey="grabResultEstimatedCasesAssertionRow2Reload"/>
-<assertEquals stepKey="assertResultEstimatedCasesAssertionRow2Toggle10offReload">
-<expectedResult type="string">23 Cases</expectedResult>
-<actualResult type="string">{$grabResultEstimatedCasesAssertionRow2Reload}</actualResult>
-</assertEquals>
-
-
-
-
-<click selector="{{flooringCalculatorSelector.addAreaBtn}}" stepKey="clickAddAreaBtnRow3"/>
-<fillField  selector="{{flooringCalculatorSelector.areaRow3}}"  userInput="{{flooringCalculatorValues.areaValueRow3}}"  stepKey="fillAreaRow3"/>
-
-<click selector="{{flooringCalculatorSelector.calculateBtn}}" stepKey="clickCalculateBtnBeforeUndo1"/>
-
-<makeScreenshot stepKey="screenshotBeforeUndo1"/>
-<click selector="{{flooringCalculatorSelector.undoBtn}}" stepKey="clickUndoBtn1"/>
-<click selector="{{flooringCalculatorSelector.undoBtn}}" stepKey="clickUndoBtn2"/>
-<click selector="{{flooringCalculatorSelector.undoBtn}}" stepKey="clickUndoBtn3"/>
-<makeScreenshot stepKey="screenshotAfterUndo1"/>
-<!--grab and assert estimated cases - Undo to beginning result-->
-<grabTextFrom selector="#j_est-cases" stepKey="grabResultEstimatedCasesAssertionUndo1"/>
-<assertEquals stepKey="assertResultEstimatedCasesAssertionUndo1">
-<expectedResult type="string">7 Cases</expectedResult>
-<actualResult type="string">{$grabResultEstimatedCasesAssertionUndo1}</actualResult>
-</assertEquals>
-<!--grab and assert estimated Price - Undo to beginning result-->
-<grabTextFrom selector="#j_est-price" stepKey="grabResultPriceAssertionUndo1"/>
-<assertEquals stepKey="assertResultPriceAssertionUndo1">
-<expectedResult type="string">$395.78</expectedResult>
-<actualResult type="string">{$grabResultPriceAssertionUndo1}</actualResult>
-</assertEquals>
-<!--grab and assert estimated sqft comes in qty of cases - Undo to beginning result-->
-<grabTextFrom selector="#j_est-casesSqft" stepKey="grabResultCasesSqftAssertionUndo1"/>
-<assertEquals stepKey="assertResultCasesSqftAssertionUndo1">
-<expectedResult type="string">Covers 132 sq. ft.</expectedResult>
-<actualResult type="string">{$grabResultCasesSqftAssertionUndo1}</actualResult>
-</assertEquals>
-<!--grab and assert estimated area - Undo to beginning result-->
-<grabTextFrom selector="#j_est-area" stepKey="grabResultEstimatedAreaAssertionUndo1"/>
-<assertEquals stepKey="assertResultEstimatedAreaAssertionUndo1">
-<expectedResult type="string">Your Calculated Area is 120 sq.ft</expectedResult>
-<actualResult type="string">{$grabResultEstimatedAreaAssertionUndo1}</actualResult>
-</assertEquals>
-
-<click selector="{{flooringCalculatorSelector.redoBtn}}" stepKey="clickRedoBtn1"/>
-<click selector="{{flooringCalculatorSelector.redoBtn}}" stepKey="clickRedoBtn2"/>
-<click selector="{{flooringCalculatorSelector.redoBtn}}" stepKey="clickRedoBtn3"/>
-<click selector="{{flooringCalculatorSelector.redoBtn}}" stepKey="clickRedoBtn4"/>
-
-
-<!--grab and assert estimated cases - redo to beginning result-->
-<grabTextFrom selector="#j_est-cases" stepKey="grabResultEstimatedCasesAssertionredos1"/>
-<assertEquals stepKey="assertResultEstimatedCasesAssertionredos1">
-<expectedResult type="string">29 Cases</expectedResult>
-<actualResult type="string">{$grabResultEstimatedCasesAssertionredos1}</actualResult>
-</assertEquals>
-<!--grab and assert estimated Price - redo to beginning result-->
-<grabTextFrom selector="#j_est-price" stepKey="grabResultPriceAssertionredos1"/>
-<assertEquals stepKey="assertResultPriceAssertionredos1">
-<expectedResult type="string">$1639.66</expectedResult>
-<actualResult type="string">{$grabResultPriceAssertionredos1}</actualResult>
-</assertEquals>
-<!--grab and assert estimated sqft comes in qty of cases - redo to beginning result-->
-<grabTextFrom selector="#j_est-casesSqft" stepKey="grabResultCasesSqftAssertionredos1"/>
-<assertEquals stepKey="assertResultCasesSqftAssertionredos1">
-<expectedResult type="string">Covers 548 sq. ft.</expectedResult>
-<actualResult type="string">{$grabResultCasesSqftAssertionredos1}</actualResult>
-</assertEquals>
-<!--grab and assert estimated area - redo to end result-->
-<grabTextFrom selector="#j_est-area" stepKey="grabResultEstimatedAreaAssertionredos1"/>
-<assertEquals stepKey="assertResultEstimatedAreaAssertionredos1">
-<expectedResult type="string">Your Calculated Area is 533 sq.ft</expectedResult>
-<actualResult type="string">{$grabResultEstimatedAreaAssertionredos1}</actualResult>
-</assertEquals>
-
-
-
-
-
-<makeScreenshot stepKey="screenshotTopPage"/>
-<scrollTo selector="#j_est-cases" stepKey="scrollToViewResultsForScreenshot"/>
-<makeScreenshot stepKey="screenshotAtResultPage"/>
-
-
-
-<!--<grabTextFrom selector="{{flooringCalculatorSelector.origProductAddtocartFormActionUrl}}" stepKey="grabOrigProductAddtocartFormActionUrl"/>-->
-<!--<grabAttributeFrom userInput="action" selector="{{flooringCalculatorSelector.productAddtocartForm}}" stepKey="grabProductAddtocartForm"/>-->
-<!--<assertNotEquals stepKey="assertProductAddtocartForm">-->
-<!--<expectedResult type="string">$grabResultEstimatedCasesAssertionRow2Reload</expectedResult>-->
-<!--<actualResult type="string">$grabProductAddtocartForm</actualResult>-->
-<!--</assertNotEquals>-->
-
-
-<!--<click selector="{{flooringCalculatorSelector.addToCartBtn}}" stepKey="clickAddToCartBtn"/>-->
-
-<click selector="{{flooringCalculatorSelector.calculateBtn}}" stepKey="clickCalculateBtn"/>
-<makeScreenshot stepKey="screenshot3"/>
-
-
-
+        <fillField selector="{{flooringCalculatorSelector.widthInchRow1}}" userInput="{{flooringCalculatorValues.widthInchValueRow1}}" stepKey="fillWidthInchRow1"/>
+        <fillField selector="{{flooringCalculatorSelector.lengthInchRow1}}" userInput="{{flooringCalculatorValues.lengthInchValueRow1}}" stepKey="fillLengthInchRow1"/>
+        <fillField selector="{{flooringCalculatorSelector.lengthFeetRow1}}" userInput="{{flooringCalculatorValues.lengthFeetValueRow1}}" stepKey="fillLengthFeetRow1"/>
+        <fillField selector="{{flooringCalculatorSelector.widthFeetRow1}}" userInput="{{flooringCalculatorValues.widthFeetValueRow1}}" stepKey="fillWidthFeetRow1"/>
+        <!--calculate-->
+        <click selector="{{flooringCalculatorSelector.calculateBtn}}" stepKey="clickCalculateBtnAssertion1"/>
+        <!--grab and assert cases result-->
+        <grabTextFrom selector="#j_est-cases" stepKey="grabResultCasesAssertion1"/>
+        <assertEquals stepKey="assertResultAssertion1">
+           <expectedResult type="string">7 Cases</expectedResult>
+           <actualResult type="string">{$grabResultCasesAssertion1}</actualResult>
+        </assertEquals>
+        <!--grab and assert calculated area result-->
+        <grabTextFrom selector="#j_est-area" stepKey="grabResultAreaAssertion2"/>
+        <assertEquals stepKey="assertResultAreaAssertion2">
+        <expectedResult type="string">Your Calculated Area is 120 sq.ft</expectedResult>
+        <actualResult type="string">{$grabResultAreaAssertion2}</actualResult>
+        </assertEquals>
+        <!--grab and assert sqft box covers sqft result-->
+        <grabTextFrom selector="#j_est-casesSqft" stepKey="grabResultBoxCoversAssertion3"/>
+        <assertEquals stepKey="assertResultBoxCoversAssertion3">
+        <expectedResult type="string">Covers 132 sq. ft.</expectedResult>
+        <actualResult type="string">{$grabResultBoxCoversAssertion3}</actualResult>
+        </assertEquals>
+        <!--grab and assert estimated price result-->
+        <grabTextFrom selector="#j_est-price" stepKey="grabResultEstimatedPriceAssertion4"/>
+        <assertEquals stepKey="assertResultEstimatedPriceAssertion4">
+        <expectedResult type="string">$395.78</expectedResult>
+        <actualResult type="string">{$grabResultEstimatedPriceAssertion4}</actualResult>
+        </assertEquals>
+        <!--Click Toggle 10 percent to add 10 percent -->
+        <click selector="{{flooringCalculatorSelector.toggle10Percent1}}" stepKey="clickToggle10PercentOn1"/>
+        <!--grab and assert cases result (!SHOULD NOT CHANGE RESULTS FROM LAST)-->
+        <grabTextFrom selector="#j_est-cases" stepKey="grabResultCasesAssertion1AfterToggle10percentOn"/>
+        <assertEquals stepKey="assertResultAssertion1AfterToggle10percentOn">
+           <expectedResult type="string">7 Cases</expectedResult>
+           <actualResult type="string">{$grabResultCasesAssertion1AfterToggle10percentOn}</actualResult>
+        </assertEquals>
+        <!--grab and assert calculated area result -->
+        <grabTextFrom selector="#j_est-area" stepKey="grabResultAreaAssertion2AfterToggle10percentOn"/>
+        <assertEquals stepKey="assertResultAreaAssertion2AfterToggle10percentOn">
+        <expectedResult type="string">Your Calculated Area is 132 sq.ft</expectedResult>
+        <actualResult type="string">{$grabResultAreaAssertion2AfterToggle10percentOn}</actualResult>
+        </assertEquals>
+        <!--grab and assert sqft box covers sqft result (!SHOULD NOT CHANGE RESULTS FROM LAST)-->
+        <grabTextFrom selector="#j_est-casesSqft" stepKey="grabResultBoxCoversAssertion3AfterToggle10percentOn"/>
+        <assertEquals stepKey="assertResultBoxCoversAssertion3AfterToggle10percentOn">
+        <expectedResult type="string">Covers 132 sq. ft.</expectedResult>
+        <actualResult type="string">{$grabResultBoxCoversAssertion3AfterToggle10percentOn}</actualResult>
+        </assertEquals>
+        <!--grab and assert estimated price result (!SHOULD NOT CHANGE RESULTS FROM LAST)-->
+        <grabTextFrom selector="#j_est-price" stepKey="grabResultEstimatedPriceAssertion4AfterToggle10percentOn"/>
+        <assertEquals stepKey="assertResultEstimatedPriceAssertion4AfterToggle10percentOn">
+        <expectedResult type="string">$395.78</expectedResult>
+        <actualResult type="string">{$grabResultEstimatedPriceAssertion4AfterToggle10percentOn}</actualResult>
+        </assertEquals>
+        <makeScreenshot stepKey="screenshot2"/>
+        
+        
+        
+        <!--Add Row 2 LxW-->
+        <click selector="{{flooringCalculatorSelector.addLxwBtn}}" stepKey="clickAddALxwBtnRow2"/>
+        <fillField  selector="{{flooringCalculatorSelector.widthInchRow2}}"  userInput="{{flooringCalculatorValues.widthInchValueRow2}}"  stepKey="fillWidthInchRow2"/>
+        <fillField selector="{{flooringCalculatorSelector.lengthInchRow2}}" userInput="{{flooringCalculatorValues.lengthInchValueRow2}}" stepKey="fillLengthInchRow2"/>
+        <fillField selector="{{flooringCalculatorSelector.lengthFeetRow2}}" userInput="{{flooringCalculatorValues.lengthFeetValueRow2}}" stepKey="fillLengthFeetRow2"/>
+        <fillField  selector="{{flooringCalculatorSelector.widthFeetRow2}}"  userInput="{{flooringCalculatorValues.widthFeetValueRow2}}"  stepKey="fillWidthFeetRow2"/>
+        <!--grab and assert estimated cases - Toggle 10% On result-->
+        <click selector="{{flooringCalculatorSelector.calculateBtn}}" stepKey="clickCalculateBtnAssertionRow2"/>
+        <!--grab and assert estimated cases - Toggle 10% On result-->
+        <grabTextFrom selector="#j_est-cases" stepKey="grabResultEstimatedCasesAssertionRow2"/>
+        <assertEquals stepKey="assertResultEstimatedCasesAssertionRow2">
+        <expectedResult type="string">26 Cases</expectedResult>
+        <actualResult type="string">{$grabResultEstimatedCasesAssertionRow2}</actualResult>
+        </assertEquals>
+        <!--grab and assert estimated area - Toggle 10% On result-->
+        <grabTextFrom selector="#j_est-area" stepKey="grabResultEstimatedAreaAssertionRow2"/>
+        <assertEquals stepKey="assertResultEstimatedAreaAssertionRow2">
+        <expectedResult type="string">Your Calculated Area is 476 sq.ft</expectedResult>
+        <actualResult type="string">{$grabResultEstimatedAreaAssertionRow2}</actualResult>
+        </assertEquals>
+        <!--grab and assert estimated sqft comes in qty of cases - Toggle 10% On result-->
+        <grabTextFrom selector="#j_est-casesSqft" stepKey="grabResultCasesSqftAssertionRow2"/>
+        <assertEquals stepKey="assertResultCasesSqftAssertionRow2">
+        <expectedResult type="string">Covers 491 sq. ft.</expectedResult>
+        <actualResult type="string">{$grabResultCasesSqftAssertionRow2}</actualResult>
+        </assertEquals>
+        <!--grab and assert estimated Price - Toggle 10% On result-->
+        <grabTextFrom selector="#j_est-price" stepKey="grabResultPriceAssertionRow2"/>
+        <assertEquals stepKey="assertResultPriceAssertionRow2">
+        <expectedResult type="string">$1470.04</expectedResult>
+        <actualResult type="string">{$grabResultPriceAssertionRow2}</actualResult>
+        </assertEquals>
+        <!--Click Toggle 10 percent Off-->
+        <click selector="{{flooringCalculatorSelector.toggle10Percent1}}" stepKey="clickToggle10PercentOff1"/>
+        <!--grab and assert estimated Price - Toggle 10% Off result-->
+        <grabTextFrom selector="#j_est-price" stepKey="grabResultPriceAssertionRow2Toggle10off"/>
+        <assertEquals stepKey="assertResultPriceAssertionRow2Toggle10off">
+        <expectedResult type="string">$1300.42</expectedResult>
+        <actualResult type="string">{$grabResultPriceAssertionRow2Toggle10off}</actualResult>
+        </assertEquals>
+        <!--grab and assert estimated sqft comes in qty of cases - Toggle 10% Off result-->
+        <grabTextFrom selector="#j_est-casesSqft" stepKey="grabResultCasesSqftAssertionRow2Toggle10off"/>
+        <assertEquals stepKey="assertResultCasesSqftAssertionRow2Toggle10off">
+        <expectedResult type="string">Covers 434 sq. ft.</expectedResult>
+        <actualResult type="string">{$grabResultCasesSqftAssertionRow2Toggle10off}</actualResult>
+        </assertEquals>
+        <!--grab and assert estimated Area - Toggle 10% Off result-->
+        <grabTextFrom selector="#j_est-area" stepKey="grabResultEstimatedAreaAssertionRow2Toggle10off"/>
+        <assertEquals stepKey="assertResultEstimatedAreaAssertionRow2Toggle10off">
+        <expectedResult type="string">Your Calculated Area is 433 sq.ft</expectedResult>
+        <actualResult type="string">{$grabResultEstimatedAreaAssertionRow2Toggle10off}</actualResult>
+        </assertEquals>
+        <!--grab and assert estimated cases - Toggle 10% Off result-->
+        <grabTextFrom selector="#j_est-cases" stepKey="grabResultEstimatedCasesAssertionRow2Toggle10off"/>
+        <assertEquals stepKey="assertResultEstimatedCasesAssertionRow2Toggle10off">
+        <expectedResult type="string">23 Cases</expectedResult>
+        <actualResult type="string">{$grabResultEstimatedCasesAssertionRow2Toggle10off}</actualResult>
+        </assertEquals>
+        
+        <!--Reload Page and to test localStorage-->
+        <actionGroup ref="StorefrontOpenProductPageActionGroup" stepKey="openProductPage2">
+            <argument name="productUrl" value="{{_ENV.BAG_SITE}}"/>
+        </actionGroup>
+        <waitForPageLoad stepKey="waitForPageLoad2"/>
+        <click selector="{{flooringCalculatorSelector.calculateBtn}}" stepKey="clickCalculateBtnAfterReload1"/>
+        
+        <!--grab and assert estimated Price - Toggle 10% Off result-->
+        <grabTextFrom selector="#j_est-price" stepKey="grabResultPriceAssertionRow2Reload"/>
+        <assertEquals stepKey="assertResultPriceAssertionRow2Toggle10offReload">
+        <expectedResult type="string">$1300.42</expectedResult>
+        <actualResult type="string">{$grabResultPriceAssertionRow2Reload}</actualResult>
+        </assertEquals>
+        <!--grab and assert estimated sqft comes in qty of cases - Toggle 10% Off result-->
+        <grabTextFrom selector="#j_est-casesSqft" stepKey="grabResultCasesSqftAssertionRow2Reload"/>
+        <assertEquals stepKey="assertResultCasesSqftAssertionRow2Toggle10offReload">
+        <expectedResult type="string">Covers 434 sq. ft.</expectedResult>
+        <actualResult type="string">{$grabResultCasesSqftAssertionRow2Reload}</actualResult>
+        </assertEquals>
+        <!--grab and assert estimated Area - Toggle 10% Off result-->
+        <grabTextFrom selector="#j_est-area" stepKey="grabResultEstimatedAreaAssertionRow2Reload"/>
+        <assertEquals stepKey="assertResultEstimatedAreaAssertionRow2Toggle10offReload">
+        <expectedResult type="string">Your Calculated Area is 433 sq.ft</expectedResult>
+        <actualResult type="string">{$grabResultEstimatedAreaAssertionRow2Reload}</actualResult>
+        </assertEquals>
+        <!--grab and assert estimated cases - Toggle 10% Off result-->
+        <grabTextFrom selector="#j_est-cases" stepKey="grabResultEstimatedCasesAssertionRow2Reload"/>
+        <assertEquals stepKey="assertResultEstimatedCasesAssertionRow2Toggle10offReload">
+        <expectedResult type="string">23 Cases</expectedResult>
+        <actualResult type="string">{$grabResultEstimatedCasesAssertionRow2Reload}</actualResult>
+        </assertEquals>
+        
+        
+        
+        
+        <click selector="{{flooringCalculatorSelector.addAreaBtn}}" stepKey="clickAddAreaBtnRow3"/>
+        <fillField  selector="{{flooringCalculatorSelector.areaRow3}}"  userInput="{{flooringCalculatorValues.areaValueRow3}}"  stepKey="fillAreaRow3"/>
+        
+        <click selector="{{flooringCalculatorSelector.calculateBtn}}" stepKey="clickCalculateBtnBeforeUndo1"/>
+        
+        <makeScreenshot stepKey="screenshotBeforeUndo1"/>
+        <click selector="{{flooringCalculatorSelector.undoBtn}}" stepKey="clickUndoBtn1"/>
+        <click selector="{{flooringCalculatorSelector.undoBtn}}" stepKey="clickUndoBtn2"/>
+        <click selector="{{flooringCalculatorSelector.undoBtn}}" stepKey="clickUndoBtn3"/>
+        <makeScreenshot stepKey="screenshotAfterUndo1"/>
+        <!--grab and assert estimated cases - Undo to beginning result-->
+        <grabTextFrom selector="#j_est-cases" stepKey="grabResultEstimatedCasesAssertionUndo1"/>
+        <assertEquals stepKey="assertResultEstimatedCasesAssertionUndo1">
+        <expectedResult type="string">7 Cases</expectedResult>
+        <actualResult type="string">{$grabResultEstimatedCasesAssertionUndo1}</actualResult>
+        </assertEquals>
+        <!--grab and assert estimated Price - Undo to beginning result-->
+        <grabTextFrom selector="#j_est-price" stepKey="grabResultPriceAssertionUndo1"/>
+        <assertEquals stepKey="assertResultPriceAssertionUndo1">
+        <expectedResult type="string">$395.78</expectedResult>
+        <actualResult type="string">{$grabResultPriceAssertionUndo1}</actualResult>
+        </assertEquals>
+        <!--grab and assert estimated sqft comes in qty of cases - Undo to beginning result-->
+        <grabTextFrom selector="#j_est-casesSqft" stepKey="grabResultCasesSqftAssertionUndo1"/>
+        <assertEquals stepKey="assertResultCasesSqftAssertionUndo1">
+        <expectedResult type="string">Covers 132 sq. ft.</expectedResult>
+        <actualResult type="string">{$grabResultCasesSqftAssertionUndo1}</actualResult>
+        </assertEquals>
+        <!--grab and assert estimated area - Undo to beginning result-->
+        <grabTextFrom selector="#j_est-area" stepKey="grabResultEstimatedAreaAssertionUndo1"/>
+        <assertEquals stepKey="assertResultEstimatedAreaAssertionUndo1">
+        <expectedResult type="string">Your Calculated Area is 120 sq.ft</expectedResult>
+        <actualResult type="string">{$grabResultEstimatedAreaAssertionUndo1}</actualResult>
+        </assertEquals>
+        
+        <click selector="{{flooringCalculatorSelector.redoBtn}}" stepKey="clickRedoBtn1"/>
+        <click selector="{{flooringCalculatorSelector.redoBtn}}" stepKey="clickRedoBtn2"/>
+        <click selector="{{flooringCalculatorSelector.redoBtn}}" stepKey="clickRedoBtn3"/>
+        <click selector="{{flooringCalculatorSelector.redoBtn}}" stepKey="clickRedoBtn4"/>
+        
+        
+        <!--grab and assert estimated cases - redo to beginning result-->
+        <grabTextFrom selector="#j_est-cases" stepKey="grabResultEstimatedCasesAssertionredos1"/>
+        <assertEquals stepKey="assertResultEstimatedCasesAssertionredos1">
+        <expectedResult type="string">29 Cases</expectedResult>
+        <actualResult type="string">{$grabResultEstimatedCasesAssertionredos1}</actualResult>
+        </assertEquals>
+        <!--grab and assert estimated Price - redo to beginning result-->
+        <grabTextFrom selector="#j_est-price" stepKey="grabResultPriceAssertionredos1"/>
+        <assertEquals stepKey="assertResultPriceAssertionredos1">
+        <expectedResult type="string">$1639.66</expectedResult>
+        <actualResult type="string">{$grabResultPriceAssertionredos1}</actualResult>
+        </assertEquals>
+        <!--grab and assert estimated sqft comes in qty of cases - redo to beginning result-->
+        <grabTextFrom selector="#j_est-casesSqft" stepKey="grabResultCasesSqftAssertionredos1"/>
+        <assertEquals stepKey="assertResultCasesSqftAssertionredos1">
+        <expectedResult type="string">Covers 548 sq. ft.</expectedResult>
+        <actualResult type="string">{$grabResultCasesSqftAssertionredos1}</actualResult>
+        </assertEquals>
+        <!--grab and assert estimated area - redo to end result-->
+        <grabTextFrom selector="#j_est-area" stepKey="grabResultEstimatedAreaAssertionredos1"/>
+        <assertEquals stepKey="assertResultEstimatedAreaAssertionredos1">
+        <expectedResult type="string">Your Calculated Area is 533 sq.ft</expectedResult>
+        <actualResult type="string">{$grabResultEstimatedAreaAssertionredos1}</actualResult>
+        </assertEquals>
+        
+        <makeScreenshot stepKey="screenshotTopPage"/>
+        <scrollTo selector="#j_est-cases" stepKey="scrollToViewResultsForScreenshot"/>
+        <makeScreenshot stepKey="screenshotAtResultPage"/>
+        
+        <click selector="{{flooringCalculatorSelector.calculateBtn}}" stepKey="clickCalculateBtn"/>
+        <makeScreenshot stepKey="screenshot3"/>
     </test>
 </tests>
-
-
-
-
-
-
-
-
-
-

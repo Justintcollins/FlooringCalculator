@@ -114,8 +114,6 @@ function updateQty()
 }
 function updateResultData()
 {
-    // alert(casesCover());
-
     sqftFL.resultData.calculatedSqft  = parseInt(calculatedSqft());
     sqftFL.resultData.covers = parseInt(casesCover());
     sqftFL.resultData.cases = parseInt(getCasesNeeded(casesCover()));

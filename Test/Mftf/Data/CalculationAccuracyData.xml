@@ -5,139 +5,129 @@
  * See COPYING.txt for license details.
  */
 -->
-
 <entities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:mftf:DataGenerator/etc/dataProfileSchema.xsd">
     
-      <entity name="flooringCalculatorSite">
-          <data key="productPage">strive-shoulder-pack</data>
-          <data key="productPage2">rival-field-messenger</data>
-          <data key="productPage3">joust-duffle-bag</data>
-          <data key="productPage4">wayfarer-messenger-bag</data>
-          <data key="productPageTemp">strive-shoulder-pack</data>
-      </entity>
-          
+    <entity name="flooringCalculatorSite">
+        <data key="productPage">strive-shoulder-pack</data>
+    </entity>
     
     <entity name="flooringCalculatorSelector">
-    
-<!-- Buttons -->        
-<data key="calculateBtn">#c_calculate_btn</data>
-<data key="addAreaBtn">#c_add-area-btn</data>
-<data key="addLxwBtn">#c_add-lxw-btn</data>  
-<data key="toggle10Percent1">#toggle10Percent</data>
-<data key="addToCartBtn">#product-addtocart-button</data>
-<data key="undoBtn">[data-sqfl-btn=undo]</data>
-<data key="redoBtn">[data-sqfl-btn=redo]</data>
-<!-- Hidden Input Values -->
-<data key="productAddtocartForm">form#product_addtocart_form</data>
-<data key="origProductAddtocartFormActionUrl">#testing-orig-product_addtocart_form-action-url</data>
-
-
-<!-- Length x Width Rows 1-10 -->  
-<data key="lengthFeetRow1">#c_lxw-1 [data-sqfl-input=feet][data-input-name=length]</data>
-<data key="widthFeetRow1">#c_lxw-1 [data-sqfl-input=feet][data-input-name=width]</data>
-<data key="lengthInchRow1">#c_lxw-1 [data-sqfl-input=inch][data-input-name=length]</data>
-<data key="widthInchRow1">#c_lxw-1 [data-sqfl-input=inch][data-input-name=width]</data>
-<data key="lengthFeetRow2">#c_lxw-2 [data-sqfl-input=feet][data-input-name=length]</data>
-<data key="widthFeetRow2">#c_lxw-2 [data-sqfl-input=feet][data-input-name=width]</data>
-<data key="lengthInchRow2">#c_lxw-2 [data-sqfl-input=inch][data-input-name=length]</data>
-<data key="widthInchRow2">#c_lxw-2 [data-sqfl-input=inch][data-input-name=width]</data>
-<data key="lengthFeetRow3">#c_lxw-3 [data-sqfl-input=feet][data-input-name=length]</data>
-<data key="widthFeetRow3">#c_lxw-3 [data-sqfl-input=feet][data-input-name=width]</data>
-<data key="lengthInchRow3">#c_lxw-3 [data-sqfl-input=inch][data-input-name=length]</data>
-<data key="widthInchRow3">#c_lxw-3 [data-sqfl-input=inch][data-input-name=width]</data>
-<data key="lengthFeetRow4">#c_lxw-4 [data-sqfl-input=feet][data-input-name=length]</data>
-<data key="widthFeetRow4">#c_lxw-4 [data-sqfl-input=feet][data-input-name=width]</data>
-<data key="lengthInchRow4">#c_lxw-4 [data-sqfl-input=inch][data-input-name=length]</data>
-<data key="widthInchRow4">#c_lxw-4 [data-sqfl-input=inch][data-input-name=width]</data>
-<data key="lengthFeetRow5">#c_lxw-5 [data-sqfl-input=feet][data-input-name=length]</data>
-<data key="widthFeetRow5">#c_lxw-5 [data-sqfl-input=feet][data-input-name=width]</data>
-<data key="lengthInchRow5">#c_lxw-5 [data-sqfl-input=inch][data-input-name=length]</data>
-<data key="widthInchRow5">#c_lxw-5 [data-sqfl-input=inch][data-input-name=width]</data>
-<data key="lengthFeetRow6">#c_lxw-6 [data-sqfl-input=feet][data-input-name=length]</data>
-<data key="widthFeetRow6">#c_lxw-6 [data-sqfl-input=feet][data-input-name=width]</data>
-<data key="lengthInchRow6">#c_lxw-6 [data-sqfl-input=inch][data-input-name=length]</data>
-<data key="widthInchRow6">#c_lxw-6 [data-sqfl-input=inch][data-input-name=width]</data>
-<data key="lengthFeetRow7">#c_lxw-7 [data-sqfl-input=feet][data-input-name=length]</data>
-<data key="widthFeetRow7">#c_lxw-7 [data-sqfl-input=feet][data-input-name=width]</data>
-<data key="lengthInchRow7">#c_lxw-7 [data-sqfl-input=inch][data-input-name=length]</data>
-<data key="widthInchRow7">#c_lxw-7 [data-sqfl-input=inch][data-input-name=width]</data>
-<data key="lengthFeetRow8">#c_lxw-8 [data-sqfl-input=feet][data-input-name=length]</data>
-<data key="widthFeetRow8">#c_lxw-8 [data-sqfl-input=feet][data-input-name=width]</data>
-<data key="lengthInchRow8">#c_lxw-8 [data-sqfl-input=inch][data-input-name=length]</data>
-<data key="widthInchRow8">#c_lxw-8 [data-sqfl-input=inch][data-input-name=width]</data>
-<data key="lengthFeetRow9">#c_lxw-9 [data-sqfl-input=feet][data-input-name=length]</data>
-<data key="widthFeetRow9">#c_lxw-9 [data-sqfl-input=feet][data-input-name=width]</data>
-<data key="lengthInchRow9">#c_lxw-9 [data-sqfl-input=inch][data-input-name=length]</data>
-<data key="widthInchRow9">#c_lxw-9 [data-sqfl-input=inch][data-input-name=width]</data>
-<data key="lengthFeetRow10">#c_lxw-10 [data-sqfl-input=feet][data-input-name=length]</data>
-<data key="widthFeetRow10">#c_lxw-10 [data-sqfl-input=feet][data-input-name=width]</data>
-<data key="lengthInchRow10">#c_lxw-10 [data-sqfl-input=inch][data-input-name=length]</data>
-<data key="widthInchRow10">#c_lxw-10 [data-sqfl-input=inch][data-input-name=width]</data>
-<!-- Area Rows 1-10 -->  
-<data key="areaRow1">#c_area-1 [data-sqfl-input=area][data-input-name=area]</data>
-<data key="areaRow2">#c_area-2 [data-sqfl-input=area][data-input-name=area]</data>
-<data key="areaRow3">#c_area-3 [data-sqfl-input=area][data-input-name=area]</data>
-<data key="areaRow4">#c_area-4 [data-sqfl-input=area][data-input-name=area]</data>
-<data key="areaRow5">#c_area-5 [data-sqfl-input=area][data-input-name=area]</data>
-<data key="areaRow6">#c_area-6 [data-sqfl-input=area][data-input-name=area]</data>
-<data key="areaRow7">#c_area-7 [data-sqfl-input=area][data-input-name=area]</data>
-<data key="areaRow8">#c_area-8 [data-sqfl-input=area][data-input-name=area]</data>
-<data key="areaRow9">#c_area-9 [data-sqfl-input=area][data-input-name=area]</data>
-<data key="areaRow10">#c_area-10 [data-sqfl-input=area][data-input-name=area]</data>
-</entity>
+            
+        <!-- Buttons -->        
+        <data key="calculateBtn">#c_calculate_btn</data>
+        <data key="addAreaBtn">#c_add-area-btn</data>
+        <data key="addLxwBtn">#c_add-lxw-btn</data>  
+        <data key="toggle10Percent1">#toggle10Percent</data>
+        <data key="addToCartBtn">#product-addtocart-button</data>
+        <data key="undoBtn">[data-sqfl-btn=undo]</data>
+        <data key="redoBtn">[data-sqfl-btn=redo]</data>
+        <!-- Hidden Input Values -->
+        <data key="productAddtocartForm">form#product_addtocart_form</data>
+        <data key="origProductAddtocartFormActionUrl">#testing-orig-product_addtocart_form-action-url</data>
+        <!-- Length x Width Rows 1-10 -->  
+        <data key="lengthFeetRow1">#c_lxw-1 [data-sqfl-input=feet][data-input-name=length]</data>
+        <data key="widthFeetRow1">#c_lxw-1 [data-sqfl-input=feet][data-input-name=width]</data>
+        <data key="lengthInchRow1">#c_lxw-1 [data-sqfl-input=inch][data-input-name=length]</data>
+        <data key="widthInchRow1">#c_lxw-1 [data-sqfl-input=inch][data-input-name=width]</data>
+        <data key="lengthFeetRow2">#c_lxw-2 [data-sqfl-input=feet][data-input-name=length]</data>
+        <data key="widthFeetRow2">#c_lxw-2 [data-sqfl-input=feet][data-input-name=width]</data>
+        <data key="lengthInchRow2">#c_lxw-2 [data-sqfl-input=inch][data-input-name=length]</data>
+        <data key="widthInchRow2">#c_lxw-2 [data-sqfl-input=inch][data-input-name=width]</data>
+        <data key="lengthFeetRow3">#c_lxw-3 [data-sqfl-input=feet][data-input-name=length]</data>
+        <data key="widthFeetRow3">#c_lxw-3 [data-sqfl-input=feet][data-input-name=width]</data>
+        <data key="lengthInchRow3">#c_lxw-3 [data-sqfl-input=inch][data-input-name=length]</data>
+        <data key="widthInchRow3">#c_lxw-3 [data-sqfl-input=inch][data-input-name=width]</data>
+        <data key="lengthFeetRow4">#c_lxw-4 [data-sqfl-input=feet][data-input-name=length]</data>
+        <data key="widthFeetRow4">#c_lxw-4 [data-sqfl-input=feet][data-input-name=width]</data>
+        <data key="lengthInchRow4">#c_lxw-4 [data-sqfl-input=inch][data-input-name=length]</data>
+        <data key="widthInchRow4">#c_lxw-4 [data-sqfl-input=inch][data-input-name=width]</data>
+        <data key="lengthFeetRow5">#c_lxw-5 [data-sqfl-input=feet][data-input-name=length]</data>
+        <data key="widthFeetRow5">#c_lxw-5 [data-sqfl-input=feet][data-input-name=width]</data>
+        <data key="lengthInchRow5">#c_lxw-5 [data-sqfl-input=inch][data-input-name=length]</data>
+        <data key="widthInchRow5">#c_lxw-5 [data-sqfl-input=inch][data-input-name=width]</data>
+        <data key="lengthFeetRow6">#c_lxw-6 [data-sqfl-input=feet][data-input-name=length]</data>
+        <data key="widthFeetRow6">#c_lxw-6 [data-sqfl-input=feet][data-input-name=width]</data>
+        <data key="lengthInchRow6">#c_lxw-6 [data-sqfl-input=inch][data-input-name=length]</data>
+        <data key="widthInchRow6">#c_lxw-6 [data-sqfl-input=inch][data-input-name=width]</data>
+        <data key="lengthFeetRow7">#c_lxw-7 [data-sqfl-input=feet][data-input-name=length]</data>
+        <data key="widthFeetRow7">#c_lxw-7 [data-sqfl-input=feet][data-input-name=width]</data>
+        <data key="lengthInchRow7">#c_lxw-7 [data-sqfl-input=inch][data-input-name=length]</data>
+        <data key="widthInchRow7">#c_lxw-7 [data-sqfl-input=inch][data-input-name=width]</data>
+        <data key="lengthFeetRow8">#c_lxw-8 [data-sqfl-input=feet][data-input-name=length]</data>
+        <data key="widthFeetRow8">#c_lxw-8 [data-sqfl-input=feet][data-input-name=width]</data>
+        <data key="lengthInchRow8">#c_lxw-8 [data-sqfl-input=inch][data-input-name=length]</data>
+        <data key="widthInchRow8">#c_lxw-8 [data-sqfl-input=inch][data-input-name=width]</data>
+        <data key="lengthFeetRow9">#c_lxw-9 [data-sqfl-input=feet][data-input-name=length]</data>
+        <data key="widthFeetRow9">#c_lxw-9 [data-sqfl-input=feet][data-input-name=width]</data>
+        <data key="lengthInchRow9">#c_lxw-9 [data-sqfl-input=inch][data-input-name=length]</data>
+        <data key="widthInchRow9">#c_lxw-9 [data-sqfl-input=inch][data-input-name=width]</data>
+        <data key="lengthFeetRow10">#c_lxw-10 [data-sqfl-input=feet][data-input-name=length]</data>
+        <data key="widthFeetRow10">#c_lxw-10 [data-sqfl-input=feet][data-input-name=width]</data>
+        <data key="lengthInchRow10">#c_lxw-10 [data-sqfl-input=inch][data-input-name=length]</data>
+        <data key="widthInchRow10">#c_lxw-10 [data-sqfl-input=inch][data-input-name=width]</data>
+        <!-- Area Rows 1-10 -->  
+        <data key="areaRow1">#c_area-1 [data-sqfl-input=area][data-input-name=area]</data>
+        <data key="areaRow2">#c_area-2 [data-sqfl-input=area][data-input-name=area]</data>
+        <data key="areaRow3">#c_area-3 [data-sqfl-input=area][data-input-name=area]</data>
+        <data key="areaRow4">#c_area-4 [data-sqfl-input=area][data-input-name=area]</data>
+        <data key="areaRow5">#c_area-5 [data-sqfl-input=area][data-input-name=area]</data>
+        <data key="areaRow6">#c_area-6 [data-sqfl-input=area][data-input-name=area]</data>
+        <data key="areaRow7">#c_area-7 [data-sqfl-input=area][data-input-name=area]</data>
+        <data key="areaRow8">#c_area-8 [data-sqfl-input=area][data-input-name=area]</data>
+        <data key="areaRow9">#c_area-9 [data-sqfl-input=area][data-input-name=area]</data>
+        <data key="areaRow10">#c_area-10 [data-sqfl-input=area][data-input-name=area]</data>    
+    </entity>
     <entity name="flooringCalculatorValues">
-
-<data key="lengthFeetValueRow1">10</data>
-<data key="widthFeetValueRow1">10</data>
-<data key="lengthInchValueRow1">18</data>
-<data key="widthInchValueRow1">6</data>
-<data key="lengthFeetValueRow2">23</data>
-<data key="widthFeetValueRow2">13</data>
-<data key="lengthInchValueRow2">9</data>
-<data key="widthInchValueRow2">2</data>
-<data key="lengthFeetValueRow3">10</data>
-<data key="widthFeetValueRow3">10</data>
-<data key="lengthInchValueRow3">10</data>
-<data key="widthInchValueRow3">10</data>
-<data key="lengthFeetValueRow4">10</data>
-<data key="widthFeetValueRow4">10</data>
-<data key="lengthInchValueRow4">10</data>
-<data key="widthInchValueRow4">10</data>
-<data key="lengthFeetValueRow5">10</data>
-<data key="widthFeetValueRow5">10</data>
-<data key="lengthInchValueRow5">10</data>
-<data key="widthInchValueRow5">10</data>
-<data key="lengthFeetValueRow6">10</data>
-<data key="widthFeetValueRow6">10</data>
-<data key="lengthInchValueRow6">10</data>
-<data key="widthInchValueRow6">10</data>
-<data key="lengthFeetValueRow7">10</data>
-<data key="widthFeetValueRow7">10</data>
-<data key="lengthInchValueRow7">10</data>
-<data key="widthInchValueRow7">10</data>
-<data key="lengthFeetValueRow8">10</data>
-<data key="widthFeetValueRow8">10</data>
-<data key="lengthInchValueRow8">10</data>
-<data key="widthInchValueRow8">10</data>
-<data key="lengthFeetValueRow9">10</data>
-<data key="widthFeetValueRow9">10</data>
-<data key="lengthInchValueRow9">10</data>
-<data key="widthInchValueRow9">10</data>
-<data key="lengthFeetRValueow10">10</data>
-<data key="widthFeetRValueow10">10</data>
-<data key="lengthInchValueRow10">10</data>
-<data key="widthInchValueRow10">10</data>
-
-<data key="areaValueRow1">100</data>
-<data key="areaValueRow2">100</data>
-<data key="areaValueRow3">100</data>
-<data key="areaValueRow4">100</data>
-<data key="areaValueRow5">100</data>
-<data key="areaValueRow6">100</data>
-<data key="areaValueRow7">100</data>
-<data key="areaValueRow8">100</data>
-<data key="areaValueRow9">100</data>
-<data key="areaValueRow10">100</data>
+        <data key="lengthFeetValueRow1">10</data>
+        <data key="widthFeetValueRow1">10</data>
+        <data key="lengthInchValueRow1">18</data>
+        <data key="widthInchValueRow1">6</data>
+        <data key="lengthFeetValueRow2">23</data>
+        <data key="widthFeetValueRow2">13</data>
+        <data key="lengthInchValueRow2">9</data>
+        <data key="widthInchValueRow2">2</data>
+        <data key="lengthFeetValueRow3">10</data>
+        <data key="widthFeetValueRow3">10</data>
+        <data key="lengthInchValueRow3">10</data>
+        <data key="widthInchValueRow3">10</data>
+        <data key="lengthFeetValueRow4">10</data>
+        <data key="widthFeetValueRow4">10</data>
+        <data key="lengthInchValueRow4">10</data>
+        <data key="widthInchValueRow4">10</data>
+        <data key="lengthFeetValueRow5">10</data>
+        <data key="widthFeetValueRow5">10</data>
+        <data key="lengthInchValueRow5">10</data>
+        <data key="widthInchValueRow5">10</data>
+        <data key="lengthFeetValueRow6">10</data>
+        <data key="widthFeetValueRow6">10</data>
+        <data key="lengthInchValueRow6">10</data>
+        <data key="widthInchValueRow6">10</data>
+        <data key="lengthFeetValueRow7">10</data>
+        <data key="widthFeetValueRow7">10</data>
+        <data key="lengthInchValueRow7">10</data>
+        <data key="widthInchValueRow7">10</data>
+        <data key="lengthFeetValueRow8">10</data>
+        <data key="widthFeetValueRow8">10</data>
+        <data key="lengthInchValueRow8">10</data>
+        <data key="widthInchValueRow8">10</data>
+        <data key="lengthFeetValueRow9">10</data>
+        <data key="widthFeetValueRow9">10</data>
+        <data key="lengthInchValueRow9">10</data>
+        <data key="widthInchValueRow9">10</data>
+        <data key="lengthFeetRValueow10">10</data>
+        <data key="widthFeetRValueow10">10</data>
+        <data key="lengthInchValueRow10">10</data>
+        <data key="widthInchValueRow10">10</data>
+        <data key="areaValueRow1">100</data>
+        <data key="areaValueRow2">100</data>
+        <data key="areaValueRow3">100</data>
+        <data key="areaValueRow4">100</data>
+        <data key="areaValueRow5">100</data>
+        <data key="areaValueRow6">100</data>
+        <data key="areaValueRow7">100</data>
+        <data key="areaValueRow8">100</data>
+        <data key="areaValueRow9">100</data>
+        <data key="areaValueRow10">100</data>
     </entity>
 </entities>

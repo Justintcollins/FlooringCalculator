@@ -7,7 +7,7 @@ var _productHasContainer = document.getElementById("sqft-hasContainer").getAttri
 var _productSqftUnitPrice = document.getElementById("mage_sqft-unit-price").getAttribute("data-mage-package-container-sqft-unit-price");
 var _productProductId = document.getElementById("mage_productId").getAttribute("data-mage-product-id");
 
-if (_moreProcessing) {
+if (_moreProcessing == 'true') {
     if (_packageContainerQty < 1) {
         _packageContainerQty = extractNumbersFromProductName(_productName,"max");
     }
@@ -242,10 +242,14 @@ function addLastElement(inputType)
 
 function buildPriceView()
 {
+    if (preData.sqftPrice == 0) {
+        preData.sqftPrice =  Number(preData.boxPrice / preData.sqftInBox).toFixed(2);
+    }
 
     var priceViewHtml = `<div class="j_ j_row" style="height:.8em"><div class="j_ j_col-6"></div><div class="j_ j_col-6" style="font-size:.5em;font-weight:400">Covers ${preData.sqftInBox} sq. ft.</div></div><div id="c_priceView" class="j_ j_row"><div class="j_ j_col-6"><div class="j_ ">\$${preData.sqftPrice}<span style="font-size:.5em;font-weight:400"> /sq. ft.</span></div></div><div class="j_  j_col-6 " style="border-left:solid 1px grey"><div class="j_ ">&nbsp;\$${preData.boxPrice}<span style="font-size:.5em;font-weight:400"> /case</span></div></div></div>`;
     
-    document.querySelector(".price").innerHTML = priceViewHtml;
+    // document.querySelector("#customPriceArea").innerHTML = priceViewHtml;
+    document.querySelector("#maincontent > div.columns > div > div.product-info-main .price").innerHTML = priceViewHtml;
     var priceViewElem = document.getElementById("c_priceView");
     (Number(preData.boxPrice) > 100) ? priceViewElem.classList.add("smaller-price-view") : false;
 }
@@ -637,7 +641,7 @@ function diffObjects()
 function ifHistoryChanges(callbackTrue, callbackFalse)
 {
     if (callbackFalse == null) {
-        callbackFalse = function () {}; 
+        callbackFalse = function () {};
     } // compare saved history object with mState object for edits
     return diffObjects(sqftFL.history.mState[sqftFL.history.position],sqftFL.mState) ? callbackTrue() : callbackFalse();
 }
@@ -863,7 +867,9 @@ getSavedLocalStorageOrCookies();
  * Until then, this is a work around for the original price html
  * overwriting the custom priceView.
  */
+setTimeout(function () { buildPriceView(); }, 200);
 setTimeout(function () { buildPriceView(); }, 1000);
+setTimeout(function () { buildPriceView(); }, 3000);
 setTimeout(function () { buildPriceView(); }, 5000);
 setTimeout(function () { buildPriceView(); }, 10000);
 setTimeout(function () { buildPriceView(); }, 20000);

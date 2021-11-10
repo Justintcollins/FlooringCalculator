@@ -11,13 +11,15 @@
         <css src="Ecommerce121_FlooringCalculator::css/j_custom_bootstrap.css"/>
         <css src="Ecommerce121_FlooringCalculator::css/style.css"/>
     </head>
-    <update handle="catalog_product_opengraph" />
-    <update handle="page_calendar"/>
+    <!--<update handle="catalog_product_opengraph" />-->
+    <!--<update handle="page_calendar"/>-->
     <body>
         <referenceContainer name="product.info.main">
             <block class="Magento\Catalog\Block\Product\View\Description" name="changeproduct" template="Ecommerce121_FlooringCalculator::product/view/changeproduct.phtml" after="product.info.price">
                 <arguments>
                     <argument name="viewModel" xsi:type="object">Ecommerce121\FlooringCalculator\ViewModel\ProductLoader</argument>
+                    <argument name="calculatorLogic" xsi:type="object">Ecommerce121\FlooringCalculator\ViewModel\CalculatorLogic</argument>
+
                 </arguments>
             </block>
             <block class="Magento\Catalog\Block\Product\View\Description" name="showCalculator" template="Ecommerce121_FlooringCalculator::product/view/showCalculator.phtml" after="product.info.price">

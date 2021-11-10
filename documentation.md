@@ -32,3 +32,7 @@ The `m` in `mState` means measurement.
  
  ------------------------- 
  
+ # Mftf
+ **Must set the page to test in CalculationAccuracyData.xml**
+` <data key="productPage">test-page</data>`
+ 
